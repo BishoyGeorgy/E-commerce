@@ -18,4 +18,6 @@ package com.ecommerce.ecommerce.entity;
  * @date 08/04/2021
  */
 public class Product {
+
+
 }
