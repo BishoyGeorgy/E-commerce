@@ -1,4 +1,4 @@
-package com.ecommerce.ecommerce.entity;
+package com.ecommerce.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -20,6 +20,7 @@ public class Product {
 
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "sku", nullable = true, length = 255)
     private String sku;

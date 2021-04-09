@@ -1,9 +1,10 @@
-package com.ecommerce.ecommerce.entity;
+package com.ecommerce.entity;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  *
@@ -18,10 +19,13 @@ import javax.persistence.*;
 public class Category {
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Basic
     @Column(name = "name", nullable = true, length = 255)
     private String name;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryByCategoryId")
+    private Set<Product> products;
 
     @Override
     public boolean equals(Object o) {
