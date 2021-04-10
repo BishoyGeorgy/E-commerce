@@ -8,7 +8,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
 
 /**
- * @author <a href="bishoy.georgy@incorta.com">Bishoy Georgy</a>
+ * @author @Bishoy
  * @version 1.0
  * @date 09/04/2021
  */

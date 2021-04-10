@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
- * @author <a href="bishoy.georgy@incorta.com">Bishoy Georgy</a>
+ * @author @Bishoy
  * @version 1.0
  * @date 08/04/2021
  */
@@ -22,7 +22,7 @@ public class Product {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "sku", nullable = true, length = 255)
+    @Column(name = "sku", nullable = false, length = 255)
     private String sku;
     @Column(name = "name", nullable = true, length = 255)
     private String name;
@@ -39,7 +39,7 @@ public class Product {
     @Column(name = "date_created", nullable = true)
     @CreationTimestamp
     private Timestamp dateCreated;
-    @Column(name = "last_updated", nullable = true)
+    @Column(name = "last_updated", nullable = false)
     @UpdateTimestamp
     private Timestamp lastUpdated;
     @ManyToOne

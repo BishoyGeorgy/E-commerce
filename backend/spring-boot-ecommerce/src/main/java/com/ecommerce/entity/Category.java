@@ -7,8 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 /**
- *
- * @author <a href="bishoy.georgy@incorta.com">Bishoy Georgy</a>
+ * @author @Bishoy
  * @version 1.0
  * @date 08/04/2021
  */
@@ -21,8 +20,7 @@ public class Category {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Basic
-    @Column(name = "name", nullable = true, length = 255)
+    @Column(name = "name", nullable = false, length = 255)
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryByCategoryId")
     private Set<Product> products;
