@@ -44,7 +44,7 @@ public class Product {
     private Timestamp lastUpdated;
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
-    private Category categoryByCategoryId;
+    private Category category;
 
     @Override
     public boolean equals(Object o) {
