@@ -11,17 +11,27 @@ import { AbstractService } from '../abstract.service';
 export class ProductService {
 
   constructor(private httpClient: HttpClient) {}
+  
+  getProductsList(): Observable<Product[]> {
+    const productsListURL = `${AbstractService.baseUrl}/products`;
+    return this.httpClient
+      .get<Product[]>(productsListURL)
+      .pipe(map((response: Product[]) => response));
+  }
 
-  getProductList(theCategoryId: number): Observable<Product[]> {
-    const searchUrl = `${AbstractService.baseUrl}/products/search/findByCategoryId?id=${theCategoryId}`;
+  getProductByCategory(theCategoryId: number): Observable<Product[]> {
+    const productURL = `${AbstractService.baseUrl}/products/${theCategoryId}`;
 
     return this.httpClient
-      .get<GetResponse>(searchUrl)
-      .pipe(map((response) => response._embedded.products));
+      .get<Product[]>(productURL)
+      .pipe(map((response: Product[]) => response));
   }
-}
-interface GetResponse {
-  _embedded: {
-    products: Product[]
+
+  getProductContaining(theKeyword: string): Observable<Product[]> {
+    const searchUrl = `${AbstractService.baseUrl}/products/search?keyword=${theKeyword}`;
+
+    return this.httpClient
+      .get<Product[]>(searchUrl)
+      .pipe(map((response: Product[]) => response));
   }
 }
