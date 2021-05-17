@@ -19,6 +19,11 @@ export class ProductService {
       .pipe(map((response: Product[]) => response));
   }
 
+  getProduct(productId:number): Observable<Product> {
+    const productURL = `${AbstractService.baseUrl}/product/${productId}`;
+    return this.httpClient.get<Product>(productURL);
+  }
+
   getProductByCategory(theCategoryId: number): Observable<Product[]> {
     const productURL = `${AbstractService.baseUrl}/products/${theCategoryId}`;
 
